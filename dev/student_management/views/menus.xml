@@ -1,0 +1,29 @@
+<odoo>
+    <menuitem id="menu_student_root"
+              name="Quản lý sinh viên"
+              sequence="10"/>
+
+    <menuitem id="menu_student_management"
+              name="Sinh viên"
+              parent="menu_student_root"
+              sequence="10"/>
+
+    <menuitem id="menu_student"
+              name="Danh sách sinh viên"
+              parent="menu_student_management"
+              action="action_student_student"
+              sequence="10"/>
+
+    <!--  Thư viện  -->
+    <menuitem id="menu_library"
+              name="Thư viện"
+              parent="menu_student_root"
+              sequence="20"/>
+
+    <menuitem id="menu_library_book"
+              name="Sách"
+              parent="menu_library"
+              action="action_library_book"
+              sequence="10"/>
+
+</odoo>

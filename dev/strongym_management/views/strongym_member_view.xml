@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  Form View  -->
+    <record id="view_strongym_member_form" model="ir.ui.view">
+        <field name="name">strongym.member.form</field>
+        <field name="model">strongym.member</field>
+        <field name="arch" type="xml">
+            <form string="Members">
+                <header>
+                    <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Họ và tên"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="dob"/>
+                            <field name="gender"/>
+                            <field name="phone"/>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                            <field name="membership_plan_id"/>
+                            <field name="expired_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--  Tree View  -->
+    <record id="view_strongym_member_tree" model="ir.ui.view">
+        <field name="name">strongym.member.tree</field>
+        <field name="model">strongym.member</field>
+        <field name="arch" type="xml">
+            <tree string="Members" decoration-success="status=='active'" decoration-danger="status=='expired'">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="dob"/>
+                <field name="gender"/>
+                <field name="membership_plan_id"/>
+                <field name="status"/>
+                <field name="expired_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_strongym_member_search" model="ir.ui.view">
+        <field name="name">strongym.member.search</field>
+        <field name="model">strongym.member</field>
+        <field name="arch" type="xml">
+            <search string="Members search">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="membership_plan_id"/>
+                <filter string="Đang hoạt động" name="active" domain="[('status', '=', 'active')]"/>
+                <filter string="Hết hạn" name="expired" domain="[('status', '=', 'expired')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Giới tính" name="gender" domain="[]" context="{'group_by': 'gender'}"/>
+                    <filter string="Gói thành viên" name="membership_plan" domain="[]" context="{'group_by': 'membership_plan_id'}"/>
+                    <filter string="Trạng thái" name="status" domain="[]" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_strongym_member" model="ir.actions.act_window">
+        <field name="name">Thành viên</field>
+        <field name="res_model">strongym.member</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_strongym_member_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo thành viên mới
+            </p>
+        </field>
+    </record>
+
+</odoo>

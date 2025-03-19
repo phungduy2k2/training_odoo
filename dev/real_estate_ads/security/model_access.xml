@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+
+        <record id="real_estate_ads.access_estate_property_type" model="ir.model.access">
+            <field name="group_id" ref="real_estate_ads.group_property_manager"/>
+        </record>
+
+        <record id="real_estate_ads.access_estate_property_tag" model="ir.model.access">
+            <field name="group_id" ref="real_estate_ads.group_property_manager"/>
+        </record>
+
+    </data>
+</odoo>

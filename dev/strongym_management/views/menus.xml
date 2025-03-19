@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  Main Menu  -->
+    <menuitem id="menu_root"
+              name="Strongym"
+              web_icon="strongym_management,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_strongym_member"
+              name="Members"
+              parent="strongym_management.menu_root"
+              action="action_strongym_member"
+              sequence="10"/>
+
+    <menuitem id="menu_strongym_employee"
+              name="Employees"
+              parent="strongym_management.menu_root"
+              action="action_strongym_employee"
+              sequence="20"/>
+
+    <!--  Submenu Categories  -->
+<!--    <menuitem id="menu_strongym_members"-->
+<!--              name="Members"-->
+<!--              parent="menu_root"-->
+<!--              sequence="10"/>-->
+
+    <menuitem id="menu_strongym_configuration"
+              name="Configuration"
+              parent="menu_root"
+              sequence="100"/>
+
+    <!-- Configuration Menu Items -->
+    <menuitem id="menu_strongym_membership_plan"
+              name="MembershipPlan"
+              parent="menu_strongym_configuration"
+              action="action_strongym_membership_plan"
+              sequence="10"/>
+</odoo>

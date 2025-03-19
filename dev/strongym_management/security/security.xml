@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Security Groups -->
+        <record id="module_strongym_management_category" model="ir.module.category">
+            <field name="name">Strongym Management</field>
+        </record>
+
+        <record id="group_strongym_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_strongym_management_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_strongym_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_strongym_management_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_strongym_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <!-- Access Rights -->
+        <record id="access_strongym_member_user" model="ir.model.access">
+            <field name="name">strongym.member.user</field>
+            <field name="model_id" ref="model_strongym_member"/>
+            <field name="group_id" ref="group_strongym_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_strongym_member_manager" model="ir.model.access">
+            <field name="name">strongym.member.manager</field>
+            <field name="model_id" ref="model_strongym_member"/>
+            <field name="group_id" ref="group_strongym_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="access_strongym_membership_plan_user" model="ir.model.access">
+            <field name="name">strongym.membership.plan.user</field>
+            <field name="model_id" ref="model_strongym_membership_plan"/>
+            <field name="group_id" ref="group_strongym_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_strongym_membership_plan_manager" model="ir.model.access">
+            <field name="name">strongym.membership.plan.manager</field>
+            <field name="model_id" ref="model_strongym_membership_plan"/>
+            <field name="group_id" ref="group_strongym_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="access_strongym_employee_user" model="ir.model.access">
+            <field name="name">strongym.employee.user</field>
+            <field name="model_id" ref="model_strongym_employee"/>
+            <field name="group_id" ref="strongym_management.group_strongym_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_strongym_employee_manager" model="ir.model.access">
+            <field name="name">strongym.employee.manager</field>
+            <field name="model_id" ref="model_strongym_employee"/>
+            <field name="group_id" ref="strongym_management.group_strongym_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Record Rules -->
+        <record id="rule_strongym_employee_manager" model="ir.rule">
+            <field name="name">Manager sees all employees</field>
+            <field name="model_id" ref="model_strongym_employee"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('strongym_management.group_strongym_manager'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="rule_strongym_employee_user" model="ir.rule">
+            <field name="name">User can only read employee records</field>
+            <field name="model_id" ref="model_strongym_employee"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('strongym_management.group_strongym_user'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+    </data>
+</odoo>

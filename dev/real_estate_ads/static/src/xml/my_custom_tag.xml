@@ -1,0 +1,9 @@
+<templates>
+    <t t-name="CustomActions">
+        <div>
+            <h2>
+                Custom Actions
+            </h2>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,117 @@
+<odoo>
+    <!--  Kanban View  -->
+    <record id="view_library_book_kanban" model="ir.ui.view">
+        <field name="name">library.book.kanban</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="publish_year"/>
+                <field name="author"/>
+                <field name="student_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click {{ record.student_id.raw_value ? 'oe_kanban_color_4' : 'oe_kanban_color_3' }}">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="code"/>
+                                </div>
+                                <div class="o_kanban_tags_section">
+                                    <ul>
+                                        <li t-if="record.student_id.raw_value">
+                                            <strong>Sinh viên mượn: </strong>
+                                            <field name="student_id"/>
+                                        </li>
+                                        <li t-if="!record.student_id.raw_value">
+                                            <strong>Trạng thái: </strong>
+                                            Chưa được mượn
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!--  Tree View  -->
+    <record id="view_library_book_tree" model="ir.ui.view">
+        <field name="name">library.book.tree</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree string="Sách">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="publish_year"/>
+                <field name="author"/>
+                <field name="student_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  Form View  -->
+    <record id="view_library_book_form" model="ir.ui.view">
+        <field name="name">library.book.form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form string="Sách">
+                <sheet>
+                    <div style="max-width: 60%; margin: auto;">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="code" style="font-weight: bold; font-size: 30px;"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="publish_year"/>
+                            <field name="author"/>
+                            <field name="student_id"/>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_library_book_search" model="ir.ui.view">
+        <field name="name">library.book.search</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search string="Tìm kiếm sách">
+                <field name="code" string="Mã sách"/>
+                <field name="name" string="Tên sách"/>
+                <field name="author" string="Tác giả"/>
+                <field name="student_id" string="Sinh viên mượn"/>
+                <filter name="borrowed" string="Đã mượn" domain="[('student_id', '!=', False)]"/>
+                <filter name="available" string="Chưa mượn" domain="[('student_id', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_student" string="Sinh viên" context="{'group_by': 'student_id'}"/>
+                    <filter name="group_by_year" string="Năm xuất bản" context="{'group_by': 'publish_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_library_book" model="ir.actions.act_window">
+        <field name="name">Sách thư viện</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_library_book_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Thêm sách vào thư viện
+            </p>
+        </field>
+    </record>
+
+</odoo>

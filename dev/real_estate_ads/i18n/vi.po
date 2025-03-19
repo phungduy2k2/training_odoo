@@ -1,0 +1,498 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_ads
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-05 15:51+0000\n"
+"PO-Revision-Date: 2024-05-05 15:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: real_estate_ads
+#: model:ir.actions.report,print_report_name:real_estate_ads.property_report_action
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "<strong>Available From</strong>"
+msgstr ""
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "<strong>Best Offer:</strong>"
+msgstr ""
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "<strong>Expected Price:</strong>"
+msgstr ""
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "<strong>Postcode:</strong>"
+msgstr ""
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "<strong>Selling Price</strong>"
+msgstr ""
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "<strong>Type:</strong>"
+msgstr ""
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "Accept"
+msgstr "Chấp nhận"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property_offer__status__accepted
+msgid "Accepted"
+msgstr "Đã chấp nhận"
+
+#. module: real_estate_ads
+#: model:ir.ui.menu,name:real_estate_ads.menu_property_ads
+msgid "Ads"
+msgstr ""
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__date_availability
+msgid "Available from"
+msgstr "Hiệu lực từ"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__bedrooms
+msgid "Bedrooms"
+msgstr "Phòng ngủ"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__best_offer
+msgid "Best Offer"
+msgstr "Đề nghị tốt nhất"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__buyer_id
+msgid "Buyer"
+msgstr "Người mua"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "CANCEL"
+msgstr "HỦY"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__state__cancel
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__color
+msgid "Color"
+msgstr "Màu"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__create_date
+msgid "Create Date"
+msgstr "Ngày tạo"
+
+#. module: real_estate_ads
+#: model_terms:ir.actions.act_window,help:real_estate_ads.property_tag_action
+msgid "Create a Property Tag to Advertisement"
+msgstr "Tạo 1 nhãn tài sản cho quảng cáo"
+
+#. module: real_estate_ads
+#: model_terms:ir.actions.act_window,help:real_estate_ads.property_offer_action
+#: model_terms:ir.actions.act_window,help:real_estate_ads.property_type_action
+msgid "Create a Property Type to Advertisement"
+msgstr "Tạo 1 loại tài sản cho quảng cáo"
+
+#. module: real_estate_ads
+#: model_terms:ir.actions.act_window,help:real_estate_ads.property_action
+msgid "Create a Property to Advertisement"
+msgstr "Tạo 1 tài sản cho quảng cáo"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__create_uid
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__create_uid
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__create_uid
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__create_date
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__create_date
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: real_estate_ads
+#. odoo-javascript
+#: code:addons/real_estate_ads/static/src/xml/my_custom_tag.xml:0
+#, python-format
+msgid "Custom Actions"
+msgstr "Hành động tùy chỉnh"
+
+#. module: real_estate_ads
+#: model:ir.actions.client,name:real_estate_ads.action_custom_client_action
+msgid "Custom Client Action"
+msgstr "Hành động khách tùy chỉnh"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__partner_id
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__date_deadline
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "Deadline"
+msgstr "Thời hạn"
+
+#. module: real_estate_ads
+#. odoo-python
+#: code:addons/real_estate_ads/models/property_offer.py:0
+#, python-format
+msgid "Deadline cannot be before creation date."
+msgstr "Thời hạn không được trước ngày tạo."
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__description
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__name
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__display_name
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__display_name
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__display_name
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__garden_orientation__east
+msgid "East"
+msgstr "Đông"
+
+#. module: real_estate_ads
+#: model:ir.model,name:real_estate_ads.model_estate_property
+msgid "Estate Property Model"
+msgstr "Mô hình tài sản bất động sản"
+
+#. module: real_estate_ads
+#: model:ir.model,name:real_estate_ads.model_estate_property_offer
+msgid "Estate Property Offer Model"
+msgstr "Mô hình đề nghị tài sản bất động sản"
+
+#. module: real_estate_ads
+#: model:ir.model,name:real_estate_ads.model_estate_property_tag
+msgid "Estate Property Tag Model"
+msgstr "Mô hình nhãn tài sản bất động sản"
+
+#. module: real_estate_ads
+#: model:ir.model,name:real_estate_ads.model_estate_property_type
+msgid "Estate Property Type Model"
+msgstr "Mô hình loại tài sản bất động sản"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__expected_price
+msgid "Expected price"
+msgstr "Giá dự kiến"
+
+#. module: real_estate_ads
+#: model:ir.actions.server,name:real_estate_ads.action_extend_offer_deadline
+msgid "Extend Deadline"
+msgstr "Gia hạn thời hạn"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__facades
+msgid "Facades"
+msgstr "Mặt tiền"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__garage
+msgid "Garage"
+msgstr "Ga-ra"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__garden
+msgid "Garden"
+msgstr "Vườn"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__garden_area
+msgid "Garden Area (sqm)"
+msgstr "Diện tích vuờn (m2)"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__garden_orientation
+msgid "Garden Orientation"
+msgstr "Hướng vườn"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: real_estate_ads
+#: model:ir.module.category,description:real_estate_ads.module_category_real_estate
+msgid "Helps you handle properties, and offers"
+msgstr "Giúp bạn xử lý các tài sản, và ưu đãi"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__id
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__id
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__id
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type__id
+msgid "ID"
+msgstr "ID"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property____last_update
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer____last_update
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag____last_update
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối lúc"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__write_uid
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__write_uid
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__write_uid
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__write_date
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__write_date
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__write_date
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối lúc"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__living_area
+msgid "Living Area (sqm)"
+msgstr "Diện tích mặt sàn (m2)"
+
+#. module: real_estate_ads
+#: model:res.groups,name:real_estate_ads.group_property_manager
+msgid "Manager: Manage all properties"
+msgstr "Quản lý: quản lý tất cả tài sản"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__name
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_tag__name
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_type__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__state__new
+msgid "New"
+msgstr "Mới"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__garden_orientation__north
+msgid "North"
+msgstr "Bắc"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__state__accepted
+msgid "Offer Accepted"
+msgstr "Đề nghị đã chấp nhận"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__offer_count
+msgid "Offer Count"
+msgstr "Số đề nghị"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__state__received
+msgid "Offer Received"
+msgstr "Đề nghị đã nhận"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_kanban
+msgid "Offer(s)"
+msgstr "Đề nghị"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "Offers"
+msgstr "Đề nghị"
+
+#. module: real_estate_ads
+#: model:ir.actions.server,name:real_estate_ads.ir_cron_extend_offer_deadline_ir_actions_server
+#: model:ir.cron,cron_name:real_estate_ads.ir_cron_extend_offer_deadline
+msgid "Offers: Extend Deadline Everyday"
+msgstr "Đề nghị: Gia hạn thời hạn hằng ngày"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "Other Info"
+msgstr "Thông tin khác"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__buyer_phone
+msgid "Phone"
+msgstr "Sđt"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__postcode
+msgid "Postcode"
+msgstr "Mã bưu điện"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__price
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "Price"
+msgstr "Giá"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_calendar
+msgid "Properties"
+msgstr "Tài sản"
+
+#. module: real_estate_ads
+#: model:ir.actions.act_window,name:real_estate_ads.property_action
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__property_id
+#: model:ir.ui.menu,name:real_estate_ads.menu_property
+msgid "Property"
+msgstr "Tài sản"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "Property Name"
+msgstr "Tên tài sản"
+
+#. module: real_estate_ads
+#: model:ir.actions.act_window,name:real_estate_ads.property_offer_action
+#: model:ir.actions.act_window,name:real_estate_ads.property_offer_view_action
+#: model:ir.ui.menu,name:real_estate_ads.menu_property_offer
+msgid "Property Offer"
+msgstr "Đề nghị tài sản"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__offer_ids
+msgid "Property Offers"
+msgstr "Đề nghị tài sản"
+
+#. module: real_estate_ads
+#: model:ir.actions.report,name:real_estate_ads.property_report_action
+msgid "Property Report Action"
+msgstr "Hành động xuất tài sản"
+
+#. module: real_estate_ads
+#: model:ir.actions.act_window,name:real_estate_ads.property_tag_action
+#: model:ir.ui.menu,name:real_estate_ads.menu_property_tag
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "Property Tag"
+msgstr "Nhãn tài sản"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__tag_ids
+msgid "Property Tags"
+msgstr "Nhãn tài sản"
+
+#. module: real_estate_ads
+#: model:ir.actions.act_window,name:real_estate_ads.property_type_action
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__type_id
+#: model:ir.ui.menu,name:real_estate_ads.menu_property_type
+msgid "Property Type"
+msgstr "Loại tài sản"
+
+#. module: real_estate_ads
+#: model:ir.module.category,name:real_estate_ads.module_category_real_estate
+#: model:ir.ui.menu,name:real_estate_ads.menu_root_property_ads
+msgid "Real Estate"
+msgstr "Bất động sản"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+msgid "Refuse"
+msgstr "Từ chối"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property_offer__status__refused
+msgid "Refused"
+msgstr "Đã từ chối"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__sales_id
+msgid "Salesman"
+msgstr "Người bán"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__selling_price
+msgid "Selling Price"
+msgstr "Giá bán"
+
+#. module: real_estate_ads
+#: model:ir.ui.menu,name:real_estate_ads.menu_property_setting
+msgid "Settings"
+msgstr "Cài đặt"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__state__sold
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_search
+msgid "Sold"
+msgstr "Bán"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__garden_orientation__south
+msgid "South"
+msgstr "Nam"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__state
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__status
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.estate_property_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: real_estate_ads
+#: model:ir.ui.menu,name:real_estate_ads.menu_test_client_action
+msgid "Test Client Action"
+msgstr "Thử hành động người dùng"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property__total_area
+msgid "Total Area (sqm)"
+msgstr "Tổng diện tích (m2)"
+
+#. module: real_estate_ads
+#: model:res.groups,name:real_estate_ads.group_property_user
+msgid "User: Manage own property"
+msgstr "Người dùng: Quản lý tài sản riêng"
+
+#. module: real_estate_ads
+#: model_terms:ir.ui.view,arch_db:real_estate_ads.report_estate_property_document
+msgid "Validity"
+msgstr "Hiệu lực"
+
+#. module: real_estate_ads
+#: model:ir.model.fields,field_description:real_estate_ads.field_estate_property_offer__validity
+msgid "Validity (days)"
+msgstr "Hiệu lực (ngày)"
+
+#. module: real_estate_ads
+#: model:ir.model.fields.selection,name:real_estate_ads.selection__estate_property__garden_orientation__west
+msgid "West"
+msgstr "Tây"

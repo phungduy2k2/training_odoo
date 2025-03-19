@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_partner_form_student_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.student.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Thông tin sinh viên">
+                    <group>
+                        <field name="is_student"/>
+                        <field name="student_id" attrs="{'invisible': [('is_student', '=', False)], 'required': [('is_student', '=', True)]}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
