@@ -6,7 +6,7 @@ class Property(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin', 'website.published.mixin', "website.seo.metadata"]
     _description = 'Estate Property Model'
 
-    name = fields.Char(string='Name', required=True, tracking=True)
+    name = fields.Char(string='Name ', required=True, tracking=True)
     description = fields.Text(string='Description')
     postcode = fields.Char(string='Postcode')
     date_availability = fields.Date(string='Available from')
