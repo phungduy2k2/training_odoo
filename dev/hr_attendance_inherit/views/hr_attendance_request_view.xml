@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  Form View  -->
+    <record id="view_hr_attendance_request_form" model="ir.ui.view">
+        <field name="name">hr.attendance.request.form</field>
+        <field name="model">hr.attendance.request</field>
+        <field name="arch" type="xml">
+            <form string="Yêu cầu chấm công">
+                <header>
+                    <button string="Phê duyệt" name="action_approve" type="object" class="btn-success oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'waiting')]}"/>
+                    <button string="Từ chối" name="action_reject" type="object" class="btn-danger oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'waiting')]}"/>
+                    <!--                    <button string="Đặt lại nháp" name="action_reset_draft" type="object" class="oe_highlight"-->
+                    <!--                            attrs="{'invisible': [('state', 'not in', ['waiting', 'rejected'])]}"/>-->
+                    <field name="state" widget="statusbar" status_visible="draft,waiting,approved,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe-title">
+                        <h2>
+                            <field name="name"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="request_date"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="request_type"
+                                   attrs="{'readonly': [('state', 'not in', ['draft','waiting'])]}"/>
+                            <field name="reason"
+                                   attrs="{'invisible': [('request_type', '=', False)], 'readonly': [('state', 'not in', ['draft','waiting'])]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--  List View  -->
+    <record id="view_hr_attendance_request_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.request.tree</field>
+        <field name="model">hr.attendance.request</field>
+        <field name="arch" type="xml">
+            <tree string="Yêu cầu chấm công" decoration-warning="state == 'waiting'"
+                  decoration-success="state == 'approved'" decoration-danger="state == 'rejected'">
+                <field name="name"/>
+                <field name="request_date"/>
+                <field name="employee_id"/>
+                <field name="request_type" optional="show"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  Search View  -->
+    <record id="view_hr_attendance_request_search" model="ir.ui.view">
+        <field name="name">attendance.request.search</field>
+        <field name="model">hr.attendance.request</field>
+        <field name="arch" type="xml">
+            <search string="Lọc phiếu yêu cầu">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="request_type"/>
+                <filter string="Nháp" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="Chờ duyệt" name="waiting" domain="[('state','=','waiting')]"/>
+                <filter string="Đã duyệt" name="approved" domain="[('state','=','approved')]"/>
+                <filter string="Từ chối" name="rejected" domain="[('state','=','rejected')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Người yêu cầu" name="employee_id" context="{'group_by': 'employee_id'}"/>
+                    <filter string="Loại yêu cầu" name="request_type" context="{'group_by': 'request_type'}"/>
+                    <filter string="Trạng thái" name="state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--  Action  -->
+    <record id="action_hr_attendance_request" model="ir.actions.act_window">
+        <field name="name">Yêu cầu chấm công</field>
+        <field name="res_model">hr.attendance.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hr_attendance_request_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo phiếu yêu cầu mới
+            </p>
+        </field>
+    </record>
+
+    <!--  Menuitem  -->
+    <menuitem id="menu_hr_attendance_request"
+              name="Request"
+              parent="hr_attendance.menu_hr_attendance_root"
+              sequence="20"
+              action="action_hr_attendance_request"/>
+</odoo>
