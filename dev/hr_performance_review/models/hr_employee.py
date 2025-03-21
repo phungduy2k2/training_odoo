@@ -42,5 +42,5 @@ class HrEmployee(models.Model):
             'view_mode': 'tree,form',
             'res_model': 'hr.performance.review',
             'domain': [('employee_id', '=', self.id)],
-            'context': {'default_student_id': self.id},
+            'context': {'default_employee_id': self.id},
         }

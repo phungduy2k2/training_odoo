@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!--  Create demo performance reviews for existing employees  -->
+        <!--  Review 1: Draft state  -->
+        <record id="performance_review_1" model="hr.performance.review">
+            <field name="name">Demo review Ronnie Hart</field>
+            <field name="employee_id">2</field>
+            <field name="reviewer_id">6</field>
+            <field name="review_date" eval="Datetime.today().strftime('%d/%m/%Y')"/>
+            <field name="performance_score">3</field>
+            <field name="comments">Ăn khu mấn</field>
+            <field name="state">draft</field>
+        </record>
+    </data>
+
+</odoo>
