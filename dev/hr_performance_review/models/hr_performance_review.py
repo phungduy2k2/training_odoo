@@ -18,7 +18,7 @@ class HrPerformanceReview(models.Model):
         ('3', 'Good'),
         ('4', 'Excellent')
     ], "Điểm hiệu suất", required=True, tracking=True)
-    comments = fields.Text("Comments")
+    comments = fields.Text("Nhận xét")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('submitted', 'Submitted'),
@@ -38,9 +38,10 @@ class HrPerformanceReview(models.Model):
             rec.is_admin = self.env.user.has_group('hr_performance_review.group_hr_performance_admin')
 
     def action_submit(self):
-        # Check quyền
-        if not self.env.user.has_group('hr_performance_review.group_hr_performance_user'):
-            raise AccessError(_("Bạn không có quyền nộp phiếu đánh giá này."))
+        # Check người đánh giá
+        if (self.reviewer_id.id != self.env.user.id and
+                not self.env.user.has_group('hr_performance_review.group_hr_performance_admin')):
+            raise AccessError(_("Bạn không phải người tạo phiếu đánh giá này."))
         # Sửa trạng thái draft -> submitted
         self.write({'state': 'submitted'})
         # Ghi log
@@ -54,7 +55,7 @@ class HrPerformanceReview(models.Model):
         # Sửa trạng thái submitted -> approved
         self.write({'state': 'approved'})
         # Ghi log
-        self.message_post(body=_("Phiếu đánh giá hiệu suất được phê duyệt bởi %s") % self.env.user.name)
+        self.message_post(body=_("Phiếu đánh giá này được phê duyệt bởi %s") % self.env.user.name)
         return True
 
     def action_reset_to_draft(self):
@@ -65,7 +66,7 @@ class HrPerformanceReview(models.Model):
             'state': 'draft'
         })
         # Ghi log
-        self.message_post(body=_("Phiếu đánh giá hiệu suất quay lại trạng thái DRAFT bởi %s") % self.env.user.name)
+        self.message_post(body=_("Phiếu đánh giá này quay lại trạng thái DRAFT bởi %s") % self.env.user.name)
         return True
 
     def write(self, vals):

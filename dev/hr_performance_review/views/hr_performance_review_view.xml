@@ -5,7 +5,8 @@
         <field name="name">hr.performance.review.tree</field>
         <field name="model">hr.performance.review</field>
         <field name="arch" type="xml">
-            <tree string="Phiếu đánh giá hiệu suất" >
+            <tree string="Phiếu đánh giá hiệu suất" decoration-danger="state == 'draft'"
+                  decoration-info="state == 'submitted'" decoration-success="state == 'approved'">
                 <field name="name"/>
                 <field name="employee_id"/>
                 <field name="reviewer_id"/>
