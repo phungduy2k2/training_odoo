@@ -5,14 +5,14 @@
         <field name="name">hr.performance.review.tree</field>
         <field name="model">hr.performance.review</field>
         <field name="arch" type="xml">
-            <tree string="Phiếu đánh giá hiệu suất" decoration-danger="state == 'draft'"
-                  decoration-info="state == 'submitted'" decoration-success="state == 'approved'">
+            <tree string="Phiếu đánh giá hiệu suất">
                 <field name="name"/>
                 <field name="employee_id"/>
                 <field name="reviewer_id"/>
                 <field name="performance_score"/>
                 <field name="review_date"/>
-                <field name="state"/>
+                <field name="state" widget="badge" decoration-danger="state == 'draft'"
+                       decoration-info="state == 'submitted'" decoration-success="state == 'approved'"/>
             </tree>
         </field>
     </record>
@@ -36,16 +36,19 @@
                     <div>
                         <h1>
                             <field name="is_admin" invisible="1"/>
-                            <field name="name" class="oe_title" placeholder="Tên phiếu đánh giá"
+                            <field name="name" class="oe_title" placeholder="Tên phiếu đánh giá" style="width: 100%;"
                                 attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"
                             />
                         </h1>
                     </div>
                     <group>
-                        <field name="reviewer_id" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
-                        <field name="employee_id" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
-                        <field name="performance_score" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
-                        <field name="review_date" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
+                        <group>
+                            <field name="reviewer_id" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
+                            <field name="employee_id" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
+                            <field name="performance_score" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
+                            <field name="review_date" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
+                        </group>
+                        <group/>
                     </group>
                     <group>
                         <field name="comments" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
