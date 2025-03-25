@@ -10,14 +10,15 @@ class HrPerformanceReview(models.Model):
     name = fields.Char("Tên", required=True)
     employee_id = fields.Many2one('hr.employee', string="Nhân viên", required=True)
     review_date = fields.Date("Ngày đánh giá", default=fields.Date.today, tracking=True)
-    reviewer_id = fields.Many2one('res.users', string="Người đánh giá", default=lambda self: self.env.user,
-                                  required=True, tracking=True)
+    reviewer_id = fields.Many2one('res.users', string="Người đánh giá", required=True, tracking=True,
+        domain=lambda self: [('groups_id', 'in', [self.env.ref('hr_performance_review.group_hr_performance_manager').id])]
+    )
     performance_score = fields.Selection([
         ('1', 'Poor'),
         ('2', 'Average'),
         ('3', 'Good'),
         ('4', 'Excellent')
-    ], "Điểm hiệu suất", required=True, tracking=True)
+    ], "Điểm hiệu suất", tracking=True)
     comments = fields.Text("Nhận xét")
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -41,16 +42,17 @@ class HrPerformanceReview(models.Model):
         # Check người đánh giá
         if (self.reviewer_id.id != self.env.user.id and
                 not self.env.user.has_group('hr_performance_review.group_hr_performance_admin')):
-            raise AccessError(_("Bạn không phải người tạo phiếu đánh giá này."))
+            raise AccessError(_("Bạn không phải người đánh giá."))
         # Sửa trạng thái draft -> submitted
         self.write({'state': 'submitted'})
         # Ghi log
-        self.message_post(body=_("Phiếu đánh giá hiệu suất được gửi bởi %s") % self.env.user.name)
+        self.message_post(body=_("Phiếu đánh giá hiệu suất được submit bởi %s") % self.env.user.name)
         return True
 
     def action_approve(self):
         # Check quyền
-        if not self.env.user.has_group('hr_performance_review.group_hr_performance_manager'):
+        if (self.reviewer_id.id != self.env.user.id and
+                not self.env.user.has_group('hr_performance_review.group_hr_performance_admin')):
             raise AccessError(_("Bạn không có quyền phê duyệt phiếu đánh giá này."))
         # Sửa trạng thái submitted -> approved
         self.write({'state': 'approved'})
