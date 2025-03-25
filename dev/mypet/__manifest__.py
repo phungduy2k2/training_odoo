@@ -13,6 +13,7 @@
         'views/my_pet_view.xml',
 
         'wizard/batch_update.xml',
+        'views/res_config_settings_view.xml'
     ],
     'installable': True,
     'application': True

@@ -24,4 +24,17 @@ class MyPet(models.Model):
                                    column1='col_pet_id',
                                    column2='col_product_id')
 
-    basic_price = fields.Float('Basic Price', default=0)
+    basic_price = fields.Float(string='Basic Price')
+
+    @api.model
+    def create(self, vals):
+        is_check_duplicated_pet_name = (self.env['ir.config_parameter'].sudo()
+                                        .get_param('mypet.is_check_duplicated_pet_name', default=False))
+        if is_check_duplicated_pet_name:
+            vals = [vals,] if not isinstance(vals, (tuple, list)) else vals
+            for val in vals:
+                pet_name = val["name"]
+                pet_records = self.search([('name', '=', pet_name)])
+                if pet_records:
+                    raise ValidationError(_("Duplicated pet name @ %s" % pet_name))
+        return super(MyPet, self).create(vals)
