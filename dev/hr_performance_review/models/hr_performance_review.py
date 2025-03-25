@@ -49,7 +49,7 @@ class HrPerformanceReview(models.Model):
         self.message_post(body=_("Phiếu đánh giá hiệu suất được submit bởi %s") % self.env.user.name)
         return True
 
-    def action_approve(self):
+    def action_approve(self): 
         # Check quyền
         if (self.reviewer_id.id != self.env.user.id and
                 not self.env.user.has_group('hr_performance_review.group_hr_performance_admin')):
