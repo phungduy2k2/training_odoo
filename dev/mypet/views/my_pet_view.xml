@@ -70,12 +70,36 @@
             </field>
         </record>
 
+        <!--  Search View  -->
+        <record id="view_my_pet_search" model="ir.ui.view">
+            <field name="name">my.pet.search</field>
+            <field name="model">my.pet</field>
+            <field eval="10" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="My Pet Search">
+                    <field name="name"/>
+                    <field name="nickname"/>
+                    <field name="owner_id"/>
+
+                    <filter name="weight_filter" string="Low weight (&lt;5kg)" domain="[('weight', '&lt;', 5)]"/>
+                    <separator/>
+                    <filter name="male_filter" string="Male" domain="[('gender', '=', 'male')]"/>
+                    <filter name="female_filter" string="Female" domain="[('gender', '=', 'female')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Gender" name="gender" context="{'group_by': 'gender'}"/>
+                        <filter string="Owner" name="owner_id" context="{'group_by': 'owner_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
         <!--  Action  -->
         <record id="action_my_pet" model="ir.actions.act_window">
             <field name="name">My Pet</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">my.pet</field>
             <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_my_pet_search"/>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Chưa có con pet mô hết

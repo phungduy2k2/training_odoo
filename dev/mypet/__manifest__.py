@@ -15,6 +15,12 @@
         'wizard/batch_update.xml',
         'views/res_config_settings_view.xml'
     ],
+    'assets': {
+        'web.assets_backend': [
+            '/mypet/static/src/xml/btn_tree_multi_update.xml',
+            '/mypet/static/src/js/btn_tree_multi_update.js',
+        ]
+    },
     'installable': True,
     'application': True
 }
