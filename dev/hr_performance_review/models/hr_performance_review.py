@@ -86,3 +86,7 @@ class HrPerformanceReview(models.Model):
         elif self.state != 'draft':
             raise AccessError(_("Bạn không có quyền xóa bản ghi không ở trạng thái Draft."))
         return super(HrPerformanceReview, self).unlink()
+
+    def _get_report_base_filename(self):
+        self.ensure_one()
+        return 'Performance Review - %s' % self.name

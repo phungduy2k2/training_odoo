@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_approve_review_wizard" model="ir.ui.view">
+        <field name="name">view.approve.review.wizard</field>
+        <field name="model">approve.review.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Approve hoặc Reset phiếu đánh giá">
+                <group>
+                    <field name="action_type" widget="radio"/>
+                </group>
+                <p>
+                    Cập nhật hàng loạt trạng thái bản ghi thành Approved hoặc Draft (Reset).
+                </p>
+                <footer>
+                    <button string="Áp dụng" name="action_apply" type="object" default_focus="1" class="btn-primary"/>
+                    <button string="Hủy" class="btn-default text-uppercase" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_approve_review_wizard" model="ir.actions.act_window">
+        <field name="name">Approve hoặc Reset phiếu đánh giá</field>
+        <field name="res_model">approve.review.wizard</field>
+        <field name="binding_model_id" ref="model_hr_performance_review"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_approve_review_wizard"/>
+    </record>
+</odoo>
