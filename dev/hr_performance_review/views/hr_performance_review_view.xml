@@ -45,7 +45,8 @@
                         <group>
                             <field name="reviewer_id" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
                             <field name="employee_id" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
-                            <field name="performance_score" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
+                            <field name="performance_score" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"
+                                   widget="selection_badge"/>
                             <field name="review_date" attrs="{'readonly': [('state', '!=', 'draft'), ('is_admin', '=', False)]}"/>
                         </group>
                         <group/>
@@ -74,6 +75,7 @@
                 <field name="performance_score"/>
                 <field name="state"/>
                 <field name="reviewer_id"/>
+                <filter string="My Reviews" name="my_reviews" domain="[('reviewer_id', '=', uid)]"/>
                 <separator/>
                 <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
                 <filter string="Submitted" name="submitted" domain="[('state', '=', 'submitted')]"/>
@@ -100,6 +102,7 @@
         <field name="res_model">hr.performance.review</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="view_hr_performance_review_search"/>
+        <field name="context">{'search_default_my_reviews': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Tạo phiếu đánh giá mới

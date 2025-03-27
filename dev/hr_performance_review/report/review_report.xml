@@ -1,0 +1,53 @@
+<odoo>
+    <record id="review_report_action" model="ir.actions.report">
+        <field name="name">Review Report Action</field>
+        <field name="model">hr.performance.review</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_performance_review.report_performance_review</field>
+        <field name="report_file">hr_performance_review.report_performance_review</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="attachment">((object.name)+'.pdf')</field>
+        <field name="binding_model_id" ref="model_hr_performance_review"/>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <template id="report_performance_review_document">
+        <t t-call="web.external_layout">
+            <div class="mt-5">
+                <div class="page">
+                    <h2>Performance Review Report</h2>
+                    <div>
+                        <strong>Employee:</strong>
+                        <p t-field="o.employee_id"/>
+                    </div>
+                    <div>
+                        <strong>Reviewer:</strong>
+                        <p t-field="o.reviewer_id"/>
+                    </div>
+                    <div>
+                        <strong>Review Date:</strong>
+                        <p t-field="o.review_date"/>
+                    </div>
+                    <div>
+                        <strong>Performance Score:</strong>
+                        <p t-field="o.performance_score"/>
+                    </div>
+                    <div>
+                        <strong>Comments:</strong>
+                        <p t-field="o.comments"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_performance_review">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="hr_performance_review.report_performance_review_document"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>

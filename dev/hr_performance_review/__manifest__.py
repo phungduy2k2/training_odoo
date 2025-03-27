@@ -14,6 +14,10 @@
 
         'views/hr_performance_review_view.xml',
         'views/hr_employee_view.xml',
+
+        'wizard/approve_review.xml',
+
+        'report/review_report.xml'
     ],
     'installable': True,
     'application': True,

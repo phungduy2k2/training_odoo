@@ -43,13 +43,13 @@
         <field name="name">hr.attendance.request.tree</field>
         <field name="model">hr.attendance.request</field>
         <field name="arch" type="xml">
-            <tree string="Yêu cầu chấm công" decoration-warning="state == 'waiting'"
-                  decoration-success="state == 'approved'" decoration-danger="state == 'rejected'">
+            <tree string="Yêu cầu chấm công">
                 <field name="name"/>
                 <field name="request_date"/>
                 <field name="employee_id"/>
                 <field name="request_type" optional="show"/>
-                <field name="state"/>
+                <field name="state" widget="badge" decoration-warning="state == 'waiting'"
+                       decoration-success="state == 'approved'" decoration-danger="state == 'rejected'"/>
             </tree>
         </field>
     </record>
