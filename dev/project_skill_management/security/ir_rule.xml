@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="group_project_skill_manager" model="res.groups">
+        <field name="name">Quản lý kỹ năng dự án</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+    <data noupdate="1">
+        <record id="rule_hr_employee_skill_own" model="ir.rule">
+            <field name="name">Nhân viên: chỉ xem kỹ năng của mình</field>
+            <field name="model_id" ref="model_hr_employee_skill"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="rule_project_allocation_manager" model="ir.rule">
+            <field name="name">Quản lý toàn bộ phân bổ</field>
+            <field name="model_id" ref="model_project_allocation"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="groups" eval="[(4, ref('group_project_skill_manager'))]"/>
+        </record>
+    </data>
+</odoo>
