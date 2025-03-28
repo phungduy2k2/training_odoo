@@ -26,4 +26,15 @@ class ApproveReviewWizard(models.TransientModel):
         elif self.action_type == 'reset':
             reviews.filtered(lambda r: r.state != 'draft').write({'state': 'draft'})
 
-        return {'type': 'ir.actions.act_window_close'}
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Thông báo',
+                'message': 'Cập nhật hoàn tất!',
+                'sticky': False,
+                'next': {
+                    'type': 'ir.actions.act_window_close'  # Đóng wizard sau khi thông báo biến mất
+                }
+            }
+        }

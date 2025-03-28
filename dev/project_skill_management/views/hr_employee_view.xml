@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_employee_skill_inherit_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.skill.inherit.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Kỹ năng chuyên môn" name="employee_skills">
+                    <group>
+                        <group>
+                            <field name="project_capacity" widget="float_time"/>
+                            <field name="allocated_hours" readonly="1"/>
+                            <field name="available_capacity" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="skill_ids" widget="many2many_tags"
+                               context="{'default_category': 'technical'}"
+                               domain="[('category', '=', 'technical')]"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
