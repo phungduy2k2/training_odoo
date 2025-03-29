@@ -21,6 +21,7 @@ class HREmployeeSkill(models.Model):
     ], 'Trình độ', default='1')
 
     years_of_experience = fields.Float('Số năm kinh nghiệm', compute='_compute_years_of_experience', store=True)
+    certification_id = fields.Many2one('hr.employee.certification', 'Chứng chỉ', ondelete='cascade')
 
     @api.depends('level')
     def _compute_years_of_experience(self):

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hr_multi_update_wizard_form" model="ir.ui.view">
+        <field name="name">hr.multi.update.wizard.form</field>
+        <field name="model">hr.multi.update.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cập nhật chứng chỉ và kỹ năng">
+                <sheet>
+                    <group>
+                        <field name="certification_ids" widget="many2many_tags"/>
+                        <field name="skill_ids" widget="many2many_tags"/>
+                    </group>
+                    <p>
+                        Chú ý: Chỉ cập nhật những nhân viên có kinh nghiệm ít nhất 5 năm
+                    </p>
+                </sheet>
+                <footer>
+                    <button string="Cập nhật"
+                            name="action_update_employee_records"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Hủy"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_multi_update_wizard" model="ir.actions.act_window">
+        <field name="name">Bulk Update</field>
+        <field name="res_model">hr.multi.update.wizard</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_hr_multi_update_wizard_form"/>
+    </record>
+</odoo>

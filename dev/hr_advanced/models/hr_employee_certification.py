@@ -12,6 +12,7 @@ class HREmployeeCertification(models.Model):
     expiration_date = fields.Date('Ngày hết hạn')
 
     years_of_experience = fields.Float('Số năm kinh nghiệm', compute='_compute_years_of_experience', store=True)
+    skill_ids = fields.One2many('hr.employee.skill', 'certification_id', string='Kỹ năng tương ứng')
 
     @api.depends('issue_date', 'expiration_date')
     def _compute_years_of_experience(self):
