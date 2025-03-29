@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hr_employee_certification_user,hr.employee.certification.user,model_hr_employee_certification,base.group_user,1,0,0,0
-access_hr_employee_certification_hr_manager,hr.employee.certification.hr.manager,model_hr_employee_certification,hr.group_hr_manager,1,1,1,1
 access_hr_employee_certification_cert_manager,hr.employee.certification.cert.manager,model_hr_employee_certification,hr_advanced.group_hr_certification_manager,1,1,1,1
 access_hr_employee_skill_user,hr.employee.skill.user,model_hr_employee_skill,base.group_user,1,0,0,0
-access_hr_employee_skill_hr_manager,hr.employee.skill.hr.manager,model_hr_employee_skill,hr.group_hr_manager,1,1,1,1
 access_hr_employee_skill_skill_manager,hr.employee.skill.skill.manager,model_hr_employee_skill,hr_advanced.group_hr_skill_manager,1,1,1,1
+access_hr_multi_update_employee_wizard,hr.multi.update.employee.wizard,model_hr_multi_update_wizard,hr_advanced.group_hr_certification_manager,1,1,1,1
+access_hr_multi_update_employee_wizard,hr.multi.update.employee.wizard,model_hr_multi_update_wizard,hr_advanced.group_hr_skill_manager,1,1,1,1

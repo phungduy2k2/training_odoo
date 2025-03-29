@@ -14,7 +14,9 @@
 
         'views/hr_employee_inherit_view.xml',
         'views/hr_employee_certification_view.xml',
-        # 'views/hr_employee_skill_view.xml'
+        'views/hr_employee_skill_view.xml',
+
+        'wizard/hr_multi_update_wizard_view.xml',
     ],
     'installable': True,
     'application': True,

@@ -5,10 +5,30 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_view_certifications"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-star">
+                    <field name="certification_count" widget="statinfo" string="Chứng chỉ"/>
+                </button>
+                <button name="action_view_skills"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-star">
+                    <field name="skill_count" widget="statinfo" string="Kỹ năng"/>
+                </button>
+            </div>
+            <xpath expr="//field[@name='work_email']" position="after">
+                <field name="years_of_experience"/>
+                <field name="has_certification" invisible="1"/>
+                <field name="is_manager" invisible="1"/>
+            </xpath>
+
             <notebook position="inside">
                 <page string="Chứng chỉ" name="certifications">
-                    <field name="certification_ids">
-                        <tree>
+                    <field name="certification_ids" attrs="{'readonly': [('is_manager', '=', False)]}">
+                        <tree editable="bottom">
                             <field name="name"/>
                             <field name="issue_date"/>
                             <field name="expiration_date"/>
@@ -16,12 +36,14 @@
                         </tree>
                     </field>
                 </page>
-                <page string="Kỹ năng" name="skills">
-                    <field name="skill_ids">
-                        <tree>
+                <page string="Kỹ năng" name="skills"
+                      attrs="{'invisible': [('has_certification', '=', False)]}">
+                    <field name="skill_ids" attrs="{'readonly': [('is_manager', '=', False)]}">
+                        <tree editable="bottom">
                             <field name="name"/>
                             <field name="skill_type"/>
                             <field name="level"/>
+                            <field name="years_of_experience"/>
                         </tree>
                     </field>
                 </page>
