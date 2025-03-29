@@ -1,82 +1,81 @@
-<!--<?xml version="1.0" encoding="UTF-8" ?>-->
-<!--<odoo>-->
-<!--    <data>-->
-<!--        &lt;!&ndash;  Tree View  &ndash;&gt;-->
-<!--        <record id="view_hr_employee_skill_tree" model="ir.ui.view">-->
-<!--            <field name="name">hr.employee.skill.tree</field>-->
-<!--            <field name="model">hr.employee.skill</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <tree string="Kỹ năng nhân viên" multi_edit="1">-->
-<!--                    <field name="name"/>-->
-<!--                    <field name="skill_type"/>-->
-<!--                    <field name="level"/>-->
-<!--                    <field name="years_of_experience"/>-->
-<!--                </tree>-->
-<!--            </field>-->
-<!--        </record>-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--  Tree View  -->
+    <record id="view_hr_employee_skill_tree" model="ir.ui.view">
+        <field name="name">hr.employee.skill.tree</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <tree string="Kỹ năng nhân viên" multi_edit="1">
+                <field name="name"/>
+                <field name="skill_type"/>
+                <field name="level"/>
+                <field name="years_of_experience"/>
+            </tree>
+        </field>
+    </record>
 
-<!--        &lt;!&ndash;  Form View  &ndash;&gt;-->
-<!--        <record id="view_hr_employee_skill_form" model="ir.ui.view">-->
-<!--            <field name="name">hr.employee.skill.form</field>-->
-<!--            <field name="model">hr.employee.skill</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <form string="Chi tiết kỹ năng">-->
-<!--                    <sheet>-->
-<!--&lt;!&ndash;                        <group>&ndash;&gt;-->
-<!--                            <group>-->
-<!--                                <field name="name"/>-->
-<!--                                <field name="skill_type"/>-->
-<!--                                <field name="level"/>-->
-<!--                                <field name="years_of_experience" readonly="1"/>-->
-<!--                            </group>-->
-<!--&lt;!&ndash;                        </group>&ndash;&gt;-->
-<!--                    </sheet>-->
-<!--                </form>-->
-<!--            </field>-->
-<!--        </record>-->
+    <!--  Form View  -->
+    <record id="view_hr_employee_skill_form" model="ir.ui.view">
+        <field name="name">hr.employee.skill.form</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <form string="Chi tiết kỹ năng">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="skill_type"/>
+                            <field name="level"/>
+                            <field name="years_of_experience" readonly="1"/>
+                            <field name="certification_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-<!--        &lt;!&ndash;  Search View  &ndash;&gt;-->
-<!--        <record id="view_hr_employee_skill_search" model="ir.ui.view">-->
-<!--            <field name="name">hr.employee.skill.search</field>-->
-<!--            <field name="model">hr.employee.skill</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <search string="Lọc kỹ năng">-->
-<!--                    <field name="name"/>-->
-<!--                    <field name="skill_type"/>-->
-<!--                    <filter string="Kỹ năng kỹ thuật" name="technical_skills"-->
-<!--                            domain="[('skill_type', '=', 'technical')]"/>-->
-<!--                    <filter string="Kỹ năng mềm" name="soft_skills" domain="[('skill_type', '=', 'soft')]"/>-->
-<!--                    <filter string="Kỹ năng ngôn ngữ" name="language_skills"-->
-<!--                            domain="[('skill_type', '=', 'language')]"/>-->
-<!--                    <group expand="0" string="Group By">-->
-<!--                        <filter string="Skill Type" name="group_by_skill_type" context="{'group_by': 'skill_type'}"/>-->
-<!--                        <filter string="Skill Level" name="group_by_skill_level" context="{'group_by': 'skill_level'}"/>-->
-<!--                    </group>-->
-<!--                </search>-->
-<!--            </field>-->
-<!--        </record>-->
+    <!--  Search View  -->
+    <record id="view_hr_employee_skill_search" model="ir.ui.view">
+        <field name="name">hr.employee.skill.search</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <search string="Lọc kỹ năng">
+                <field name="name"/>
+                <field name="skill_type"/>
+                <filter string="Kỹ năng kỹ thuật" name="technical_skills"
+                        domain="[('skill_type', '=', 'technical')]"/>
+                <filter string="Kỹ năng mềm" name="soft_skills" domain="[('skill_type', '=', 'soft')]"/>
+                <filter string="Kỹ năng ngôn ngữ" name="language_skills"
+                        domain="[('skill_type', '=', 'language')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Skill Type" name="group_by_skill_type" context="{'group_by': 'skill_type'}"/>
+                    <filter string="Skill Level" name="group_by_skill_level" context="{'group_by': 'level'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
-<!--        &lt;!&ndash;  Action  &ndash;&gt;-->
-<!--        <record id="action_hr_employee_skill" model="ir.actions.act_window">-->
-<!--            <field name="name">Employee Skills</field>-->
-<!--            <field name="res_model">hr.employee.skill</field>-->
-<!--            <field name="view_mode">tree,form</field>-->
-<!--            <field name="search_view_id" ref="view_hr_employee_skill_search"/>-->
-<!--            <field name="help">-->
-<!--                <p class="o_view_nocontent_smiling_face">-->
-<!--                    Tạo kỹ năng mới-->
-<!--                </p>-->
-<!--                <p>-->
-<!--                    Quản lý các kỹ năng của nhân viên-->
-<!--                </p>-->
-<!--            </field>-->
-<!--        </record>-->
+    <!--  Action  -->
+    <record id="action_hr_employee_skill" model="ir.actions.act_window">
+        <field name="name">Employee Skills</field>
+        <field name="res_model">hr.employee.skill</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hr_employee_skill_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo kỹ năng mới
+            </p>
+            <p>
+                Quản lý các kỹ năng của nhân viên
+            </p>
+        </field>
+    </record>
 
-<!--        &lt;!&ndash;  Menu  &ndash;&gt;-->
-<!--        <menuitem id="menu_hr_employee_skill"-->
-<!--                  name="Kỹ năng"-->
-<!--                  parent="hr.menu_hr_root"-->
-<!--                  action="action_hr_employee_skill"-->
-<!--                  sequence="160"/>-->
-<!--    </data>-->
-<!--</odoo>-->
+    <!--  Menu  -->
+    <menuitem id="menu_hr_employee_skill"
+              name="Kỹ năng"
+              parent="hr.menu_hr_root"
+              action="action_hr_employee_skill"
+              sequence="160"/>
+</odoo>
