@@ -46,7 +46,22 @@ class HREmployeeInherit(models.Model):
     def _compute_is_manager(self):
         for rec in self:
             rec.is_manager = (self.env.user.has_group('hr_advanced.group_hr_certification_manager') or
-                            self.env.user.has_group('hr_advanced.group_hr_skill_manager'))
+                              self.env.user.has_group('hr_advanced.group_hr_skill_manager'))
+
+    @api.onchange('certification_ids')
+    def _onchange_certification_ids(self):
+        for rec in self:
+            new_skills = rec.certification_ids.mapped('skill_ids')
+            skills_to_remove = rec.skill_ids.filtered(
+                lambda skill: skill.certification_id.id and skill.certification_id.id not in rec.certification_ids.ids)
+
+            rec.skill_ids = rec.skill_ids + new_skills - skills_to_remove
+
+    @api.constrains('skill_ids')
+    def _constrain_skill_ids(self):
+        for rec in self:
+            if len(rec.skill_ids) > 4:
+                raise ValidationError('Số kỹ năng không được vượt quá 4.')
 
     def action_view_certifications(self):
         return {
